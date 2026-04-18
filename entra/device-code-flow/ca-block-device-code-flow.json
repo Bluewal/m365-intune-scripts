@@ -1,0 +1,31 @@
+{
+  "displayName": "Block - Device Code Flow",
+  "description": "Blocks the OAuth 2.0 Device Authorization Grant flow to mitigate AiTM phishing attacks (EvilTokens and similar campaigns). Deploy after verifying zero legitimate usage with Invoke-DeviceCodeFlowAudit.ps1.",
+  "state": "enabled",
+  "conditions": {
+    "users": {
+      "includeUsers": [
+        "All"
+      ],
+      "excludeUsers": [],
+      "excludeGroups": [
+        "<BREAK_GLASS_GROUP_OBJECT_ID>"
+      ],
+      "excludeRoles": []
+    },
+    "applications": {
+      "includeApplications": [
+        "All"
+      ]
+    },
+    "authenticationFlows": {
+      "transferMethods": "deviceCodeFlow"
+    }
+  },
+  "grantControls": {
+    "operator": "OR",
+    "builtInControls": [
+      "block"
+    ]
+  }
+}
