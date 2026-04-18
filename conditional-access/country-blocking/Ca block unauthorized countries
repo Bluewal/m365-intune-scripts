@@ -1,0 +1,36 @@
+{
+  "displayName": "Block - Sign-ins from unauthorized countries",
+  "description": "Blocks all authentication attempts originating from countries not explicitly allowed. Adapt the included/excluded locations to match your organization's legitimate user locations.",
+  "state": "enabled",
+  "conditions": {
+    "users": {
+      "includeUsers": [
+        "All"
+      ],
+      "excludeUsers": [],
+      "excludeGroups": [
+        "<BREAK_GLASS_GROUP_OBJECT_ID>"
+      ],
+      "excludeRoles": []
+    },
+    "applications": {
+      "includeApplications": [
+        "All"
+      ]
+    },
+    "locations": {
+      "includeLocations": [
+        "All"
+      ],
+      "excludeLocations": [
+        "<ALLOWED_COUNTRIES_NAMED_LOCATION_ID>"
+      ]
+    }
+  },
+  "grantControls": {
+    "operator": "OR",
+    "builtInControls": [
+      "block"
+    ]
+  }
+}
