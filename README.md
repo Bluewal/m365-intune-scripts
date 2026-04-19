@@ -6,7 +6,7 @@
 
 ## 👋 About
 
-I'm a solo IT & Security Manager at a ~50-person nonprofit in Switzerland, managing the full Microsoft 365 stack (Entra ID, Intune, Defender XDR, Exchange Online, SharePoint, Teams).
+I'm a solo IT & Security Manager at a small nonprofit in Europe, managing the full Microsoft 365 stack (Entra ID, Intune, Defender XDR, Exchange Online, SharePoint, Teams).
 
 This repo is a collection of scripts, configs, and templates I've built and battle-tested in production. No fluff — everything here has been deployed on real hardware.
 
@@ -22,6 +22,14 @@ This repo is a collection of scripts, configs, and templates I've built and batt
 |------|-------------|
 | [`defender/threat-response/Invoke-NpmAxiosScan.ps1`](defender/threat-response/Invoke-NpmAxiosScan.ps1) | Detects the axios npm supply chain attack IOC (`wt.exe` in `%ProgramData%`) across Intune-managed fleet — no E3/E5 required |
 
+### 🔐 Entra / Audit Scripts
+
+| File | Description |
+|------|-------------|
+| [`entra/shared-mailboxes/Invoke-SharedMailboxAudit.ps1`](entra/shared-mailboxes/Invoke-SharedMailboxAudit.ps1) | Audits all shared mailboxes for sign-in status, license assignment, and last activity |
+| [`entra/admin-accounts/Invoke-AdminAccountAudit.ps1`](entra/admin-accounts/Invoke-AdminAccountAudit.ps1) | Audits all admin accounts for MFA status, last sign-in, and legacy/stale accounts |
+| [`entra/legacy-auth/Invoke-LegacyAuthAudit.ps1`](entra/legacy-auth/Invoke-LegacyAuthAudit.ps1) | Audits legacy authentication protocol usage across all sign-in logs before blocking |
+
 ### 🔐 Entra / Device Code Flow
 
 | File | Description |
@@ -34,6 +42,19 @@ This repo is a collection of scripts, configs, and templates I've built and batt
 | File | Description |
 |------|-------------|
 | [`conditional-access/country-blocking/ca-block-unauthorized-countries.json`](conditional-access/country-blocking/ca-block-unauthorized-countries.json) | CA policy template to block sign-ins from unauthorized countries |
+
+---
+
+## 🔄 Audit Before You Block
+
+A recurring pattern in this repo: **always audit before deploying a block policy.**
+
+```
+Invoke-SharedMailboxAudit.ps1    → then block shared mailbox sign-ins
+Invoke-AdminAccountAudit.ps1     → then enforce MFA / clean up stale accounts
+Invoke-LegacyAuthAudit.ps1       → then block legacy auth via CA
+Invoke-DeviceCodeFlowAudit.ps1   → then block Device Code Flow via CA
+```
 
 ---
 
