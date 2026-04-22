@@ -27,7 +27,7 @@
         Failed   = IOC FOUND — device may be compromised, investigate immediately
 
 .LINK
-    https://github.com/Bluewal/bluewall-m365-toolkit
+    https://github.com/Bluewal/bluewall-m365-scripts
 
 .EXAMPLE
     Deploy via Intune Scripts.
