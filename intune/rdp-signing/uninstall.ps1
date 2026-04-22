@@ -1,5 +1,5 @@
 $AppName      = "YOURORG - RDP"
-$TargetDir    = "$env:ProgramData\Company\RDP"
+$TargetDir    = "$env:ProgramData\YOURORG\RDP"
 $RdpFile      = Join-Path $TargetDir "YOURORG-RDP.rdp"
 $PublicDesktop = [Environment]::GetFolderPath('CommonDesktopDirectory')
 $ShortcutPath  = Join-Path $PublicDesktop "$AppName.lnk"
