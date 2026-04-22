@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 $AppName   = "YOURORG - RDP"
-$TargetDir = Join-Path $env:ProgramData "Company\RDP"
+$TargetDir = Join-Path $env:ProgramData "YOURORG\RDP"
 $RdpDest   = Join-Path $TargetDir "YOURORG-RDP.rdp"
 $Log       = Join-Path $TargetDir "install.log"
 
