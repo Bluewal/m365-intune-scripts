@@ -87,7 +87,7 @@ Intune Win32 app settings:
 - **Install command:** `powershell.exe -ExecutionPolicy Bypass -File install.ps1`
 - **Uninstall command:** `powershell.exe -ExecutionPolicy Bypass -File uninstall.ps1`
 - **Install behavior:** System
-- **Detection rule:** File — `%ProgramData%\Company\RDP\version.txt` — File or folder exists
+- **Detection rule:** File — `%ProgramData%\YOURORG\RDP\version.txt` — File or folder exists
 
 > To support versioned updates, the install script writes a `version.txt` file. Increment the version number in `install.ps1` and the detection rule on each update.
 
