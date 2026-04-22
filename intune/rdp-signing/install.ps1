@@ -41,7 +41,7 @@ try {
 
     # Version marker — used by Intune detection rule
     # Increment this value (and the detection rule) on each update
-    "8" | Out-File (Join-Path $TargetDir "version.txt") -Force -Encoding utf8
+    "1" | Out-File (Join-Path $TargetDir "version.txt") -Force -Encoding utf8
 
     "[$(Get-Date -Format s)] Version=1"  | Out-File $Log -Append -Encoding utf8
     "[$(Get-Date -Format s)] Success"    | Out-File $Log -Append -Encoding utf8
