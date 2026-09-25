@@ -39,6 +39,12 @@ This repo is a collection of scripts, configs, and templates I've built and batt
 |------|-------------|
 | [`conditional-access/country-blocking/`](conditional-access/country-blocking/) | CA policy template + setup guide to block sign-ins from unauthorized countries |
 
+### 📊 Conditional Access / Report-only Analysis
+
+| File | Description |
+|------|-------------|
+| [`conditional-access/report-only-analysis/`](conditional-access/report-only-analysis/) | Lists sign-ins a report-only CA policy would have blocked — alternative to the CA insights workbook for tenants without Log Analytics |
+
 ### 🖥️ Intune / RDP File Signing
 
 | File | Description |
